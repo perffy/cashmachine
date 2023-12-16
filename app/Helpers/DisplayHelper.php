@@ -1,12 +1,5 @@
 <?php
 
-if(!function_exists('formatTransaction')) {
-    function formatTransaction($transaction)
-    {
-        return "ID: ".$transaction->id."<br>Total: ".$transaction->total."<br>Input: ".$transaction->inputs;
-    }
-}
-
 if(!function_exists('getMonths')) {
     function getMonths()
     {

@@ -38,7 +38,13 @@
             </div>
         </div>
 
-        @include('deposits.partials.transaction')
+        @if (session('transaction'))
+            <div class="col-md-12 mb-12">
+                <p class="card-text">Transaction successfully submitted. Here are the details:</p>
+                {!! session('transaction') !!}
+                </p>
+            </div>
+        @endif
 
     </div>
 @endsection

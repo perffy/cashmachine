@@ -2,6 +2,7 @@
 
 namespace App\Interfaces;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 interface TransactionInterface
@@ -10,5 +11,5 @@ interface TransactionInterface
 
     public function amount(array $data): int;
 
-    public function inputs();
+    public function inputs(Transaction $transaction): string;
 }

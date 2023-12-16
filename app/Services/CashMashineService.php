@@ -30,12 +30,12 @@ class CashMashineService
             $transactionRepo = new TransactionRepository(new Transaction());
             $amount = $transaction->amount($this->request->only($this->fields));
 
-            $transaction = $transactionRepo->store([
+            $dbTransaction = $transactionRepo->store([
                 'total' => $amount,
                 'inputs' => $this->request->only($this->fields)
             ]);
 
-            return redirect('/')->with('transaction', $transaction);
+            return redirect('/')->with('transaction', $transaction->inputs($dbTransaction));
 
 
         } else {

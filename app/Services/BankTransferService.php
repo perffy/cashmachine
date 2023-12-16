@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interfaces\TransactionInterface;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -49,9 +50,9 @@ class BankTransferService implements TransactionInterface
         return (int) $data['amount'];
     }
 
-    public function inputs()
+    public function inputs(Transaction $transaction): string
     {
-        // TODO: Implement inputs() method.
+        return "ID: ".$transaction->id."<br>Total: ".$transaction->total."<br>Input: ".$transaction->inputs;
     }
 
     public function exceedsTotalAmountOfTransactions(int $amount)
